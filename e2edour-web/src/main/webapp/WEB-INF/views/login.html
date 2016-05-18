@@ -1,0 +1,31 @@
+<div class="modal fade" id="loginModel" role="dialog" aria-hidden="true" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">登陆</h4>
+            </div>
+            <div class="modal-body">
+                <form id="loginForm" method="post" action="${staticFileRoot}/login">
+                    <div class="form-group">
+                        <label for="userName" class="control-label">用户名：</label>
+                        <input type="text" id="userName" class="form-control" placeholder="e2edour.com"/>
+
+                        <label for="userPwd" class="control-label">密码：</label>
+                        <input type="password" id="userPwd" class="form-control" placeholder="********"/>
+                    </div>
+                    <button type="button" class="btn btn-lg btn-danger btn-block" id="customerLoginBtn"
+                            name="customerLoginBtn" value="提交">登陆
+                    </button>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <a register-navigation="${staticFileRoot}/register" style="cursor: pointer;text-decoration: none;"
+                   href="javascript:void(0);"
+                   data-dismiss="modal"
+                        >注册</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="${staticFileRoot}/js/views/login.js"></script>

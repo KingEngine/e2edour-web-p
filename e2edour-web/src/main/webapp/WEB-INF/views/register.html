@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <div class="page-header">
+                <h2>用户注册</h2>
+            </div>
+            <form id="registerForm" method="post" class="form-horizontal" action="${staticFileRoot}/registerSubmit">
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">用户名</label>
+
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="name"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">密码</label>
+
+                    <div class="col-lg-5">
+                        <input type="password" class="form-control" name="password"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">确认密码</label>
+
+                    <div class="col-lg-5">
+                        <input type="password" class="form-control" name="passwordConfirm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-lg-3 control-label">邮箱</label>
+
+                    <div class="col-lg-5">
+                        <input type="text" class="form-control" name="email"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-lg-8 col-lg-offset-2">
+                        <button type="button" class="btn btn-primary btn-block" id="registerSubmitBtn">注&nbsp;&nbsp;&nbsp;&nbsp;册</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="${staticFileRoot}/js/views/register.js"></script>

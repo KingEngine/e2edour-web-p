@@ -1,0 +1,30 @@
+<div id="textJoke">
+    <#if topics.rows ??>
+        <#list topics.rows as item>
+            <div class="panel panel-danger">
+                <div class="panel-heading">
+                    <h3 class="panel-title">${item.title}</h3>
+                </div>
+                <div class="panel-body">${item.content}</div>
+            </div>
+        </#list>
+    </#if>
+    <div id="pagination" style="margin-left: 50%;"></div>
+
+    <script language="text/javascript">
+        $("#pagination").bootpag({
+                    activeClass: 'active',
+                    disabledClass: 'disabled',
+                    total: ${topics.total} / ${topics.rowCount} +1,
+                    page: ${topics.current},
+                    maxVisible:${topics.total}/${topics.rowCount}+1
+        }).on("page", function (event, num) {
+            $.ajax({
+                url: "getTopics/Text/" + num,
+                success: function (data) {
+                    $("#textJoke").html(data);
+                }
+            });
+        });
+    </script>
+
