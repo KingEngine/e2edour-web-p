@@ -1,5 +1,9 @@
 package com.e2edour.web.p.listener;
 
+
+
+import java.util.ResourceBundle;
+
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -10,11 +14,11 @@ public class ResourceInitListener
   
   public void contextInitialized(ServletContextEvent event)
   {
-    /*String staticFileRoot = event.getServletContext().getContextPath();
+    String staticFileRoot = event.getServletContext().getContextPath();
     event.getServletContext().setAttribute("staticFileRoot", staticFileRoot);
     ResourceBundle resource = ResourceBundle.getBundle("properties/application");
     String imagePath = resource.getString("imagPath");
     event.getServletContext().setAttribute("imagePath", imagePath);
-    event.getServletContext().setAttribute("theme","danger");*/
+    event.getServletContext().setAttribute("theme","danger");
   }
 }

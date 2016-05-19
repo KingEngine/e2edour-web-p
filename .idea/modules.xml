@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/e2edour-web/e2edour-web.iml" filepath="$PROJECT_DIR$/e2edour-web/e2edour-web.iml" />
       <module fileurl="file://$PROJECT_DIR$/e2edour-web-p.iml" filepath="$PROJECT_DIR$/e2edour-web-p.iml" />
     </modules>
   </component>

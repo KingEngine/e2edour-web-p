@@ -22,11 +22,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="e2edour-web" />
+        <module name="e2edour-web-p" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="e2edour-web" target="1.5" />
       <module name="e2edour-web-p" target="1.5" />
     </bytecodeTargetLevel>
   </component>
