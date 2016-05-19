@@ -7,8 +7,7 @@ import java.util.ResourceBundle;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
-public class ResourceInitListener
-  implements ServletContextListener
+public class ResourceInitListener implements ServletContextListener
 {
   public void contextDestroyed(ServletContextEvent event) {}
   
