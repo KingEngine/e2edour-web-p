@@ -1,5 +1,6 @@
 package com.e2edour.web.p.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.e2edour.app.facade.WeixinFacade;
 import com.e2edour.app.facade.req.WeiXinReq;
 import com.e2edour.app.facade.response.WeixinRes;
@@ -21,13 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("wechatapi")
 public class WeiXinController {
 
-    private Logger logger = LoggerFactory.getLogger("WeiXinController");
+    private Logger logger = LoggerFactory.getLogger("wechatapi");
     @Autowired
     private WeixinFacade weixinFacade;
 
     @RequestMapping(method = {RequestMethod.POST})
     @ResponseBody
     public WeixinRes wexinReq(WeiXinReq req) {
+        logger.info("微信req:{}", JSON.toJSONString(req));
         return weixinFacade.handlerMsg(req);
     }
 
