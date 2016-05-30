@@ -3,6 +3,8 @@ package com.e2edour.web.p.controller;
 import com.e2edour.app.facade.WeixinFacade;
 import com.e2edour.app.facade.req.WeiXinReq;
 import com.e2edour.app.facade.response.WeixinRes;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,7 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping("wechatapi")
 public class WeiXinController {
 
-
+    private Logger logger = LoggerFactory.getLogger("WeiXinController");
     @Autowired
     private WeixinFacade weixinFacade;
 
@@ -32,7 +34,11 @@ public class WeiXinController {
     @RequestMapping(method = {RequestMethod.GET})
     @ResponseBody
     public String checkSignature(String signature, String timestamp, String nonce, String echostr) {
-        if (weixinFacade.checkSignature(signature, timestamp, nonce, echostr)) {
+        logger.info("signature:{}",signature);
+        logger.info("timestamp:{}",timestamp);
+        logger.info("nonce:{}",nonce);
+        logger.info("echostr:{}",echostr);
+        if (weixinFacade.checkSignature(timestamp, nonce,signature)) {
             return echostr;
         }
         return "error";
