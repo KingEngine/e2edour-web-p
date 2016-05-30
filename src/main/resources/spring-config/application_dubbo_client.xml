@@ -28,4 +28,8 @@
 	<dubbo:reference id="eaasyManagerFacade"
 					 interface="com.e2edour.app.facade.EaasyManagerFacade"
 					 check=" false " timeout="11000" retries="0" />
+
+	<dubbo:reference id="weixinFacade"
+					 interface="com.e2edour.app.facade.WeixinFacade"
+					 check=" false " timeout="11000" retries="0" />
 </beans>
