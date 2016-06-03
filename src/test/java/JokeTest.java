@@ -2,22 +2,21 @@
 
 
 import com.e2edour.app.facade.req.WeiXinReq;
-import com.e2edour.app.facade.response.WeixinRes;
-import com.e2edour.app.facade.response.WexinTextRes;
+import com.e2edour.app.facade.response.WeixinNewsRes;
+
 import com.e2edour.common.utils.JaxbUtil;
 import junit.framework.TestCase;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
-import java.io.OutputStream;
+
 import java.io.StringReader;
+import java.util.ArrayList;
+import java.util.List;
 
 
 //@RunWith(SpringJUnit4ClassRunner.class)
@@ -27,12 +26,22 @@ public class JokeTest extends TestCase {
     @Test
     public void testBeanToXml() {
         //将java对象转换为XML字符串
-        WexinTextRes weixinRes = new WexinTextRes();
-        weixinRes.setCreateTime("1212");
+       /* WexinTextRes weixinRes = new WexinTextRes();
         weixinRes.setContent("xx");
-        JaxbUtil requestBinder = new JaxbUtil(WeixinRes.class,
+        JaxbUtil requestBinder = new JaxbUtil(WexinTextRes.class,
                 JaxbUtil.CollectionWrapper.class);
-        String retXml = requestBinder.toXml(weixinRes, "utf-8");
+        String retXml = requestBinder.toXml(weixinRes);
+        System.out.println("xml:\n" + retXml);*/
+
+        WeixinNewsRes weixinNewsRes = new WeixinNewsRes();
+        List<WeixinNewsRes.Item> items = new ArrayList<WeixinNewsRes.Item>();
+        WeixinNewsRes.Item item = new WeixinNewsRes.Item();
+        item.setDescription("");
+        items.add(item);
+        weixinNewsRes.setItems(items);
+        JaxbUtil requestBinder = new JaxbUtil(WeixinNewsRes.class,
+                JaxbUtil.CollectionWrapper.class);
+        String retXml = requestBinder.toXml(weixinNewsRes);
         System.out.println("xml:\n" + retXml);
     }
 
