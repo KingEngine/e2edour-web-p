@@ -1,11 +1,37 @@
-<div id="textJoke">
+<div id="textJoke" class="stream-list p-stream">
     <#if topics.rows ??>
         <#list topics.rows as item>
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">${item.title}</h3>
+            <div class="stream-item">
+                <div class="p-rank clearfix">
+                    <div class="users">
+                        <a href="javascript:void(0);">
+                            <div class="ava">
+                                <img src="http://www.luosh.com/store/ava/399/0/0/100.jpg" class="img-circle _img">
+                            </div>
+                        </a>
+                       <!--<a href="/view/1651">-->
+                        <div class="info">
+                            <strong class="title">
+                                <span class="label label-success">笑话</span>
+                                ${item.title}
+                            </strong>
+                            <time>sun&nbsp;2天前</time>
+                        </div>
+                        <!--</a>-->
+                    </div>
                 </div>
-                <div class="panel-body">${item.content}</div>
+                <div class="summary">
+                    <div class="excerpt wordbreak hidden-xs">
+                        ${item.content}
+                    </div>
+                </div>
+               <!-- <div class="summary">
+                    <a href="/view/1651">
+                        <div class="excerpt wordbreak hidden-xs">
+                            ${item.content}
+                        </div>
+                    </a>
+                </div>-->
             </div>
         </#list>
     </#if>
