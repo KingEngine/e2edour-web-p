@@ -1,30 +1,87 @@
-<div id="eaasy">
-    <#if eaasy.rows ??>
-        <#list eaasy.rows as item>
-            <div class="panel panel-warning">
-                <div class="panel-heading">
-                    <h3 class="panel-title">${item.title}</h3>
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="baidu_union_verify" content="77189868c4fd1b5b723cbf87e0e41978">
+    <title>乐兜兜笑话网,您身边的笑话大师</title>
+    <#include "resource.tag" />
+</head>
+<body style="background-image: url('${staticFileRoot}/images/bg.png');background-repeat: repeat;">
+<#include "top.html" />
+<div class="container">
+    <div class="row">
+        <div class="main clearfix">
+            <div class="col-xs-12 col-md-9 side-left">
+                <div class="shadow-box" style="margin-top: 100px;">
+                    <h1 class="post-title">${eaasyDetail.title}</h1>
+                    <div class="clearfix post-other">
+                        <span class="pull-left author">
+			             <a target="_blank" href="/ta/16" class="author-name">${eaasyDetail.author}</a>
+		                  </span>
+                        <time class="pull-left time">2016-06-07</time>
+                        <span class="pull-left time">浏览: 320</span>
+                        <span class="pull-right action-box"></span>
+                    </div>
+                    <div class="post-frame">
+                        <div class="thumbs">
+                        </div>
+                        <div class="post-content">
+                            <div class="show-content">
+                                ${eaasyDetail.content}
+                                <br>注意：本文归作者所有，未经作者允许，不得转载
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="panel-body">${item.content}</div>
             </div>
-        </#list>
-    </#if>
-    <div id="pagination" style="margin-left: 50%;"></div>
+        </div>
+    </div>
+</div>
+</div>
+</body>
+</html>
 
-    <script language="text/javascript">
-        $("#pagination").bootpag({
-                    activeClass: 'active',
-                    disabledClass: 'disabled',
-                    total: ${eaasy.total} / ${eaasy.rowCount},
-                    page: ${eaasy.current},
-                    maxVisible:${eaasy.total}/${eaasy.rowCount}+1
-        }).on("page", function (event, num) {
-            $.ajax({
-                url: "getEaasy/" + num,
-                success: function (data) {
-                    $("#eaasy").html(data);
-                }
-            });
-        });
-    </script>
+<!--
+                <div class="shadow-box" style="margin-top: 100px;">
+                    <h1 class="post-title">同样的工作，为什么你总是吃力不讨好？ </h1>
+                    <div class="clearfix post-other">
+                        <span class="pull-left author">
+			             <a target="_blank" href="/ta/16" class="author-name">	留一手</a>
+		                  </span>
+                        <time class="pull-left time">2016-06-07</time>
+                        <span class="pull-left time">浏览: 320</span>
+                        <span class="pull-right action-box"></span>
+                    </div>
+                    <div class="post-frame">
+                        <div class="thumbs">
+                        </div>
+                        <div class="post-content">
+                            <div class="show-content">
+
+                                <br>注意：本文归作者所有，未经作者允许，不得转载
+                            </div>
+
+                            <div class="tc mt40">
+                                <a href="javascript:void(0);" class="icon-ding dib" rel="favor" data-id="1865"></a>
+                                <p class="tc">
+                                    <em id="favors">289</em>
+                                    人赞过
+                                </p>
+                            </div>
+
+                            <div class="post-footer">
+                                <div class="tip">分享到：</div>
+                                <div class="shares">
+                                    &lt;!&ndash; Share Button BEGIN &ndash;&gt;
+                                    <div class="bdsharebuttonbox bdshare-button-24 bdshare-button-style1-24"
+                                         data-bd-bind="1465455788076">
+                                        <a title="分享到新浪微博" data-cmd="tsina" class="bds_tsina" href="#"></a>
+                                        <a title="分享到腾讯微博" data-cmd="tqq" class="bds_tqq" href="#"></a>
+                                        <a title="分享到微信" data-cmd="weixin" class="bds_weixin" href="#"></a>
+                                        <a title="分享到QQ空间" data-cmd="qzone" class="bds_qzone" href="#"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
 

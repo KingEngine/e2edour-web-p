@@ -1,0 +1,55 @@
+<div id="eaasy" class="stream-list p-stream">
+    <#if eaasy.rows ??>
+        <#list eaasy.rows as item>
+            <div class="stream-item">
+                <div class="p-rank clearfix">
+                    <div class="users">
+                        <a href="javascript:void(0);">
+                            <div class="ava">
+                                <img src="http://www.luosh.com/store/ava/399/0/0/100.jpg" class="img-circle _img">
+                            </div>
+                        </a>
+                        <a href="getEaasy/view/${item.id}" target="_blank">
+                        <div class="info">
+                            <strong class="title">
+                                <span class="label label-info">文章</span>
+                                ${item.title}
+                            </strong>
+                            <time>${item.author}&nbsp;2天前</time>
+                        </div>
+                    </div>
+                </div>
+                <div class="summary">
+                    <div class="excerpt wordbreak hidden-xs">
+                        ${item.content}
+                    </div>
+                </div>
+                <!-- <div class="summary">
+                     <a href="/view/1651">
+                         <div class="excerpt wordbreak hidden-xs">
+                             ${item.content}
+                         </div>
+                     </a>
+                 </div>-->
+            </div>
+        </#list>
+    </#if>
+    <div id="pagination" style="margin-left: 50%;"></div>
+
+    <script language="text/javascript">
+        $("#pagination").bootpag({
+                    activeClass: 'active',
+                    disabledClass: 'disabled',
+                    total: ${eaasy.total} / ${eaasy.rowCount},
+                    page: ${eaasy.current},
+                    maxVisible:${eaasy.total}/${eaasy.rowCount}+1
+        }).on("page", function (event, num) {
+            $.ajax({
+                url: "getEaasy/" + num,
+                success: function (data) {
+                    $("#eaasy").html(data);
+                }
+            });
+        });
+    </script>
+
